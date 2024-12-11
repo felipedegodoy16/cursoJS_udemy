@@ -1,0 +1,72 @@
+VARIÁVEIS
+
+- var -> não é bom utilizar mais var, é uma declaração antiga, não é bom utilizar por conta de seu escopo ser global, ou seja, ser vista até mesmo no dom do projeto não somente dentro das funções ou blocos de código igual ocorre com o let, pode ser redeclarada que não irá gerar um erro
+
+- let -> mais utilizada atualmente, seu escopo é local até mesmo para blocos de código como estruturas de repetição e estruturas de condição, usar sempre LET e não VAR, se redeclarar a variável com o let ela irá gerar um erro falando que a variável já foi declarada
+
+- const -> segue a mesma ideia do let, porém, a constante não aceita uma reatribuição de valores, ou seja, ela aceita apenas que você coloque nela um valor inicial e até o fim da aplicação ela continua tendo o mesmo valor
+
+- no JS é possível atribuir um valor a uma variável direto sem declarar ela, por padrão ela será criada como uma VAR
+- não é possível criar variáveis com palavras reservadas -> let, const, console...
+- criar variáveis sempre com nome explicativos do para que essa variável serve -> uma variável para guardar o salário de alguém declare essa variável com o nome 'salario'
+- é melhor sempre iniciar as variáveis com letras minúsculas, não utilizar espaço dentro das variáveis se for usar duas palavras diferentes utilizar camelCase, o JS é case sensitive, ou seja, nome != Nome
+
+TIPOS DE DADOS
+
+- string -> é o tipo de dado que fica entre aspas simples, aspas duplas e crazes (no caso das crazes é possível usar os template strings), é um tipo de dado indexado, ou seja, cada caractere dentro de uma string é entendido como tendo um índice, ou seja, é possível acessar cada caractere da string através de seu índice
+- number -> podendo ele ser de ponto flutuante (com vírgula) ou inteiro
+- undefined -> quando não há nenhum valor atribuído a essa variável, ou seja, não aponta para lugar nenhum
+- null -> mesmo que o undefined, porém, esse serve para objetos e é usado para atribuir valor nulo a uma variável, EX: se um usuário pode escolher uma cor para algo dentro do sistema e ele não escolhe cor nenhuma você atribui nulo para a variável que armazena a cor
+- booleano -> true ou false (valor lógico)
+
+OPERADORES ARITMÉTICOS
+
+- adição (+) -> somar números, podendo ser utilizado também para concatenação de strings 
+- subtração (-) -> subtrair números 
+- multiplicação (*) -> multiplicar números 
+- divisão (/) -> dividir números 
+- potenciação (**) -> potência do número
+- resto (%) -> retorna o resto da divisão 
+- incremento (++) -> soma +1 ao valor da variável -> tem o pré e o pós, o pré primeiro ele soma depois ele executa a ação, o pós primeiro ele executa a ação e depois ele soma
+- decremento (--) -> subtrai -1 ao valor da variável -> tem o pré e o pós, o pré primeiro ele subtrai depois ele executa a ação, o pós primeiro ele executa a ação e depois ele subtrai
+
+OPERADORES DE ATRIBUIÇÃO
+
+- atribuição normal (=) -> atribui um valor a uma variável 
+- atribuição com adição (+=) -> pode colocar um valor que quiser que vai fazer o valor da variável + o valor desejado
+- atribuição com subtração (-=) -> pode colocar um valor que quiser que vai fazer o valor da variável - o valor desejado
+- atribuição com multiplicação (*=) -> pode colocar um valor que quiser que vai fazer o valor da variável * o valor desejado
+- atribuição com divisão (/=) -> pode colocar um valor que quiser que vai fazer o valor da variável / o valor desejado
+- atribuição com soma (**=) -> pode colocar um valor que quiser que vai fazer o valor da variável elevado ao valor desejado
+- atribuição com soma (%=) -> pode colocar um valor que quiser que vai fazer o resto da divisão entre o valor da variável e o valor desejado
+
+FUNÇÕES 
+
+- typeof -> retorna o tipo de um dado, por exemplo, se quiser saber que tipo de dado uma variável está armazenando
+- parseInt() -> converter um tipo de dado em um número inteiro, se tentar converter um número decimal ele irá retornar apenas o valor inteiro do número e irá ignorar o que vem após o ponto
+- parseFloat() -> converter um tipo de dado em um número de ponto flutuante
+- Number() -> melhor de se usar, pois, irá retornar um número inteiro se for inteiro e se for decimal ele retorna decimal, ele se vira para saber se é inteiro ou não
+- alert() -> função para chamar um popup com a mensagem que você passar dentro dos parênteses
+- confirm() -> função que cria um popup de confirmação, onde aparecem dois botões para o usuário, caso clique em 'ok' é retornado um valor booleano true e caso seja clicado 'cancelar' o valor booleano retornado é false, dentro dos parênteses também é passado uma string com uma mensagem para o usuário
+- prompt() -> função que chama um popup onde o usuário pode digitar algo, é retornado o que o usuário digitar dentro desse prompt, dentro dos parênteses é passado a mensagem que quer que mostre ao usuário
+- charAt() -> usada para retornar o caractere de uma string na posição que for passada dentro dos parênteses, EX: string.charAt(5) -> retorna o caractere que está na posição 5 na variável 'string'
+- concar() -> usada para concatenar um texto, muito pouco usado, mais fácil utilizar o operador + ou dependendo utilizar template string
+- indexOf() -> usado para retornar o índice de algo, no caso, de algum caractere, é possível passar mais de um parâmetro, usado às vezes para começar de um certo índice que quiser, ele irá retornar o primeiro índice que encontrar
+- lastIndexOf() -> mesma coisa que o indexOf() -> porém, retorna o último índice que encontrar
+- match() -> usado para retornar caso de match com alguma coisa dentro da string, EX: texto.match('o') -> irá retornar a letra 'o', que é o que deu match com a expressão que coloquei dentro dos parênteses, geralmente usado com expressões regulares (regex)
+- search() -> retorna o índice do que você pesquisou, bem parecido com o indexOf
+- replace() -> faz um replace de algo dentro da string, EX: texto.replace('t', 'm') -> 'mexmo'
+- slice() -> passado dois números como parâmetro, fará um recorte da string começando do primeiro número que for passado por parâmetro e terminando no último, importante saber que sempre tem que colocar 1 índice a mais do que a letra de onde você quer, o último índice que você passa não é contabilizado no slice, se for passado apenas um parâmetro, ele irá começar daquele número e ir até o final da string 
+- substring() -> parecido com o slice mas um pouco mais complexo, melhor usar o slice mesmo
+- split() -> usado para dividir uma string em um array que seja separado através de algo que você passe, EX: string.split(' ') -> irá separar um índice para cada palavra que for espaçada por um espaço 
+- toUpperCase() -> converter toda a string em upper case
+- toLowerCase() -> converter toda a string em lower case 
+
+ATRIBUTOS
+
+- length -> retorna o número de caracteres de uma string por exemplo
+
+OBSERVAÇÕES 
+
+- JS aceita que você faça uma inversão dos valores de variáveis mais facilmente utilizando colchetes, por exemplo, varA, varB, varC quero inverter os valores sem criar uma nova variável, para isso basta usar os colchetes [varA, varB, varC] = [varB, varC, varA] -> agora o varA recebeu o valor antigo de varB, o varB recebeu o valor antigo de varC e o varC recebeu o valor antigo de varA
+- usar a barra invertida indica o escape de algum caractere que vem depois ou ele vai fazer alguma formatação como é o caso de \t que é um tab dentro do texto, então para colocar o \ dentro do texto você usa duas \\ dessa forma uma contra barra será printada dentro da sua string

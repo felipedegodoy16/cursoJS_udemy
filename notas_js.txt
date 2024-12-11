@@ -1,0 +1,60 @@
+Sempre  importar o JS no final do body, pois, garante um pouco mais que o js vai ser renderizado por último, ou seja, os elementos que utilizaremos dentro do script já estarão renderizados
+
+- camel case -> firstName
+- snake case -> first_name
+
+VARIÁVEIS JS
+- os nomes de variáveis JS podem começar com $, _ ou direto com a letra, de resto o JS não irá entender que isso é uma variável do seu projeto
+- o JS é case sensitive, ou seja, nome != Nome
+- tipos de dados das variáveis JS são dinâmicos, ou seja, uma variável pode começar com um valor inteiro e depois se tornar uma string
+
+TIPOS DE DECLARAÇÃO DE VARIÁVEIS
+
+- var -> não é recomendado utilizar o var para criar variáveis, pois, o var faz com que a variável seja criada globalmente, ou seja, ele aparece no console do seu navegador, então se for um dado sensível não é recomendado, é melhor sempre utilizar ou o let ou o const, quando uma variável é criada na sua aplicação ela automaticamente é "declarada" no topo da aplicação ou no caso de uma função ela é declarada no topo da função, isso não fica visível, mas ela está lá, se usar um console.log() por exemplo ele não aparecerá um erro que a variável não foi definida e sim um valor undefined para aquela variável, isso se chama hoisting
+
+- let -> não acontece hoist com o let, ou seja, se tentar acessar uma variável que não foi declarada ainda ele vai falar que não é possível acessar a variável antes de sua inicialização, let também tem escopo de bloco, ou seja, se utilizar dentro de um loop por exemplo não conseguirá continuar com o valor dele depois de sair do bloco do loop, a variável quando criada com o let não será visível fora do bloco do loop, não será nem declarada
+
+- const -> tem a mesma ideia do let, porém, não é possível reatribuir um valor para uma constante, ou seja, o valor inicial dela será mantida até o fim de sua aplicação
+
+TIPOS DE DADOS
+- Primitivos -> Strings, Numbers, Booleanos, NaN, NULL e Undefined
+- Não Primitivos -> Objetos
+- Strings -> tudo que estiver entre aspas duplas, aspas simples ou crazes é uma String
+- Numbers -> quando se usa o operador + entre um number e uma string ele concatena a string com o number, porém, com qualquer outra operação que você utilizar ele irá realizar a operação, ou seja, '45'+98 = 4598, '45'-98 = -53
+- Booleanos -> true / false -> há cinco dados que são considerados falsos no JS enquanto todos os outros irão se comportar como verdadeiros, os falsos são (0, '', undefined, null, NaN)
+- Undefined e NULL -> são praticamente a mesma coisa, os dois sã a ausência de um valor, porém, o undefined é do tipo undefined e o null é do tipo objeto
+- Para mudar o tipo de dado primitivo da variável basta colocar o tipo que quer que seja e o valor dentro do parênteses, EX: String(38) -> '38' agora é uma String
+
+- Comando typeof -> usado para retornar o tipo de dado que está sendo armazenado em uma variável ou em um valor direto, porém, o typeof não mostra quando um número é um inteiro ou um float, ele mostra apenas que é um number
+- Para pegar um valor booleano de alguma coisa basta colocar !! antes do valor ou variável, se utilizar dentro de uma estrutura condicional não é necessário usar as exclamações, ele automaticamente pegará o valor booleano do valor ou variável
+
+Prototype
+- todos os objetos possuem prototypes que são basicamente as funções que aquel objeto pode usar, no JS, há o Object Prototype que tem algumas funções e ele é herdado para outras classes de Prototypes como o Array Prototype, que possui tanto funções dentro dele quanto ele herda do Object Prototype, para ver as Prototypes de um objeto basta colocar console.dir(nome_objeto) que ele irá mostrar o resultado
+
+objeto.valueOf -> retorna o valor de um objeto como um tipo primitivo
+
+em um objeto como JSON no JS você pode chamar com 'dot notation', ou seja, colocando objeto.index como pode chamar através do nome do índice objeto['index'], importante saber que para declarar os índices de um objeto desses é necessário colocar 'key: value', podendo colocar qualquer tipo de JS dentro desse objeto, importante também que se a key tiver '-' ou '_' ela precisa ser declarada entre aspas simples, se não, não é possível que o JS entenda essa essa key, EX: 'my-name': 'João', para funções se colocar func() = {código} ele já irá entender que está sendo declarada a função
+
+para chamar um atributo desse objeto dentro desse objeto basta usar a palavra chave 'this', ela entende que você está se referindo ao próprio objeto
+
+se passar uma variável para outra será passado apenas o valor, não será passado por referência
+
+se passar um objeto ou um array eles serão passados por referência, ou seja, se trocar alguma informação do objeto será trocado no outro também e o mesmo vale para um array
+
+e no caso de funções para passá-la por referência basta não colocar os parênteses depois, se colocar os parênteses será passado o valor que é retornado dessa função se é que ela retorna alguma valor
+
+para copiar as propriedades de um objeto sem ter esse problema de ser passado por referência usa-se o var obj = Object.assign({nome: 'Alexandre'}, {age: 38}), é poss	ível passar mais de um objeto como parâmetro e a função irá copiar todas as propriedades de todos eles, ou no lugar de usar o assign pode se usar também var obj = {...objetos}
+
+Object.entries para criar um array a partir de um objeto
+Object.fromEntries para criar um objeto a partir de um array
+
+
+
+
+
+
+
+
+
+
+
