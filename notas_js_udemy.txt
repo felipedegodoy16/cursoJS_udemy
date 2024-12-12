@@ -4,69 +4,237 @@ VARIÁVEIS
 
 - let -> mais utilizada atualmente, seu escopo é local até mesmo para blocos de código como estruturas de repetição e estruturas de condição, usar sempre LET e não VAR, se redeclarar a variável com o let ela irá gerar um erro falando que a variável já foi declarada
 
-- const -> segue a mesma ideia do let, porém, a constante não aceita uma reatribuição de valores, ou seja, ela aceita apenas que você coloque nela um valor inicial e até o fim da aplicação ela continua tendo o mesmo valor
+- const -> segue a mesma ideia do let, porém, a constante não aceita uma reatribuição de valores, ou seja, ela aceita apenas que você coloque nela um valor inicial e até o fim da aplicação ela continua tendo o mesmo valor, se a const for um array ou objeto é possível alterar seu valor, ou seja, é impossível pra uma const ser reatribuído um valor, porém, é possível alterar um valor de um array para o qual uma constante esteja apontando, o mesmo vale para objetos
 
 - no JS é possível atribuir um valor a uma variável direto sem declarar ela, por padrão ela será criada como uma VAR
 - não é possível criar variáveis com palavras reservadas -> let, const, console...
 - criar variáveis sempre com nome explicativos do para que essa variável serve -> uma variável para guardar o salário de alguém declare essa variável com o nome 'salario'
 - é melhor sempre iniciar as variáveis com letras minúsculas, não utilizar espaço dentro das variáveis se for usar duas palavras diferentes utilizar camelCase, o JS é case sensitive, ou seja, nome != Nome
 
+----------------------------------------------------------------------------------------------------------
+
 TIPOS DE DADOS
 
 - string -> é o tipo de dado que fica entre aspas simples, aspas duplas e crazes (no caso das crazes é possível usar os template strings), é um tipo de dado indexado, ou seja, cada caractere dentro de uma string é entendido como tendo um índice, ou seja, é possível acessar cada caractere da string através de seu índice
+
 - number -> podendo ele ser de ponto flutuante (com vírgula) ou inteiro
+
 - undefined -> quando não há nenhum valor atribuído a essa variável, ou seja, não aponta para lugar nenhum
+
 - null -> mesmo que o undefined, porém, esse serve para objetos e é usado para atribuir valor nulo a uma variável, EX: se um usuário pode escolher uma cor para algo dentro do sistema e ele não escolhe cor nenhuma você atribui nulo para a variável que armazena a cor
+
 - booleano -> true ou false (valor lógico)
+
+- array -> armazena vários valores dentro dele
+
+- object -> é um objeto que pode conter atributos e métodos
+
+- function -> é um bloco de código que resolve um pequeno problema e pode ser chamado várias vezes durante a execução, reproveitamento de código 
+
+- Primitivos (imutáveis) -> string, number, boolean, undefined, null (bigint, symbol) -> todos esses quando passado para uma variável é COPIADO o valor, ou seja, se tenho uma variável com esse tipo de dado e passo a outra variável é feito uma cópia do valor, ou seja, as variáveis são independentes, se alterar uma não irá alterar a outra 
+- Não Primitivos (mutáveis) -> array, object, function -> são passados por referência, ou seja, se uma variável contiver o valor de um array e eu passar essa variável a outra elas se tornam dependentes, ou seja, se alterar o valor de alguma delas as duas serão alteradas 
+
+----------------------------------------------------------------------------------------------------------
 
 OPERADORES ARITMÉTICOS
 
 - adição (+) -> somar números, podendo ser utilizado também para concatenação de strings 
+
 - subtração (-) -> subtrair números 
+
 - multiplicação (*) -> multiplicar números 
+
 - divisão (/) -> dividir números 
+
 - potenciação (**) -> potência do número
+
 - resto (%) -> retorna o resto da divisão 
+
 - incremento (++) -> soma +1 ao valor da variável -> tem o pré e o pós, o pré primeiro ele soma depois ele executa a ação, o pós primeiro ele executa a ação e depois ele soma
+
 - decremento (--) -> subtrai -1 ao valor da variável -> tem o pré e o pós, o pré primeiro ele subtrai depois ele executa a ação, o pós primeiro ele executa a ação e depois ele subtrai
+
+----------------------------------------------------------------------------------------------------------
 
 OPERADORES DE ATRIBUIÇÃO
 
 - atribuição normal (=) -> atribui um valor a uma variável 
+
 - atribuição com adição (+=) -> pode colocar um valor que quiser que vai fazer o valor da variável + o valor desejado
+
 - atribuição com subtração (-=) -> pode colocar um valor que quiser que vai fazer o valor da variável - o valor desejado
+
 - atribuição com multiplicação (*=) -> pode colocar um valor que quiser que vai fazer o valor da variável * o valor desejado
+
 - atribuição com divisão (/=) -> pode colocar um valor que quiser que vai fazer o valor da variável / o valor desejado
+
 - atribuição com soma (**=) -> pode colocar um valor que quiser que vai fazer o valor da variável elevado ao valor desejado
+
 - atribuição com soma (%=) -> pode colocar um valor que quiser que vai fazer o resto da divisão entre o valor da variável e o valor desejado
+
+----------------------------------------------------------------------------------------------------------
 
 FUNÇÕES 
 
+Maneiras de Declaração e Chamada
+
+// Função Normal 
+function soma() {
+    /* código */
+}
+soma();
+
+// Função Anônima
+const raiz = function () {
+    /* código */
+};
+raiz();
+
+// Arrow Function 
+const raiz = () => {
+    /* código */
+};
+raiz();
+
+const raiz = n => n ** 0.5; // Maneira mais curta de declaração de uma arrow function
+
 - typeof -> retorna o tipo de um dado, por exemplo, se quiser saber que tipo de dado uma variável está armazenando
+
 - parseInt() -> converter um tipo de dado em um número inteiro, se tentar converter um número decimal ele irá retornar apenas o valor inteiro do número e irá ignorar o que vem após o ponto
+
 - parseFloat() -> converter um tipo de dado em um número de ponto flutuante
+
 - Number() -> melhor de se usar, pois, irá retornar um número inteiro se for inteiro e se for decimal ele retorna decimal, ele se vira para saber se é inteiro ou não
+
 - alert() -> função para chamar um popup com a mensagem que você passar dentro dos parênteses
+
 - confirm() -> função que cria um popup de confirmação, onde aparecem dois botões para o usuário, caso clique em 'ok' é retornado um valor booleano true e caso seja clicado 'cancelar' o valor booleano retornado é false, dentro dos parênteses também é passado uma string com uma mensagem para o usuário
+
 - prompt() -> função que chama um popup onde o usuário pode digitar algo, é retornado o que o usuário digitar dentro desse prompt, dentro dos parênteses é passado a mensagem que quer que mostre ao usuário
+
 - charAt() -> usada para retornar o caractere de uma string na posição que for passada dentro dos parênteses, EX: string.charAt(5) -> retorna o caractere que está na posição 5 na variável 'string'
+
 - concar() -> usada para concatenar um texto, muito pouco usado, mais fácil utilizar o operador + ou dependendo utilizar template string
+
 - indexOf() -> usado para retornar o índice de algo, no caso, de algum caractere, é possível passar mais de um parâmetro, usado às vezes para começar de um certo índice que quiser, ele irá retornar o primeiro índice que encontrar
+
 - lastIndexOf() -> mesma coisa que o indexOf() -> porém, retorna o último índice que encontrar
+
 - match() -> usado para retornar caso de match com alguma coisa dentro da string, EX: texto.match('o') -> irá retornar a letra 'o', que é o que deu match com a expressão que coloquei dentro dos parênteses, geralmente usado com expressões regulares (regex)
+
 - search() -> retorna o índice do que você pesquisou, bem parecido com o indexOf
+
 - replace() -> faz um replace de algo dentro da string, EX: texto.replace('t', 'm') -> 'mexmo'
+
 - slice() -> passado dois números como parâmetro, fará um recorte da string começando do primeiro número que for passado por parâmetro e terminando no último, importante saber que sempre tem que colocar 1 índice a mais do que a letra de onde você quer, o último índice que você passa não é contabilizado no slice, se for passado apenas um parâmetro, ele irá começar daquele número e ir até o final da string 
+
 - substring() -> parecido com o slice mas um pouco mais complexo, melhor usar o slice mesmo
+
 - split() -> usado para dividir uma string em um array que seja separado através de algo que você passe, EX: string.split(' ') -> irá separar um índice para cada palavra que for espaçada por um espaço 
+
 - toUpperCase() -> converter toda a string em upper case
+
 - toLowerCase() -> converter toda a string em lower case 
+
+- toString() -> converter algo em string, há algunas parâmetros que podem ser passados dentro dos parênteses, por exemplo, se for passado '2' ele converte o número por exemplo para um número binário
+
+- toFixed() -> para limitar o número de casas decimais de um número, dentro dos parênteses é passado o número de casas que quero que ele limite, o número é arredondado
+
+- Number.isInteger() -> é uma função que retornar true ou false para verificar se o número é inteiro ou não
+
+- Number.isNaN() -> segue a mesma ideia do isInteger, vai retornar true se o número for um NaN 
+
+- array.push() -> usado para adicionar um elemento ao final do array
+
+- array.unshift() -> usado para adicionar um elemento no início do array, consequentemente os elementos que vem depois irão mudar de índice
+
+- array.pop() -> remove o último elemento do array, interessante saber que ele retorna o elemento que está sendo removido, ou seja, se quiser salvar esse elemento em uma variável é possível 
+
+- array.shift() -> remove o primeiro elemento do array, assim como o pop ele também retorna o elemento que está sendo removido
+
+----------------------------------------------------------------------------------------------------------
 
 ATRIBUTOS
 
+- typeof -> retorna o tipo de algum dado que você queira consultar
+
+- instanceof -> retorna true se a comparação que você estiver fazendo for verdadeira, ou seja, se você perguntar se uma variável é uma instância de uma classe e isso for verdadeiro ele retorna true, se não, retorna false
+
 - length -> retorna o número de caracteres de uma string por exemplo
+
+- innerHTML -> inserir texto HTML dentro de um elemento, EX: documnet.body.innerHTML = '<p>Testando a tag</p>'
+
+----------------------------------------------------------------------------------------------------------
+
+ARRAYS
+
+- push() -> para adicionar um elemento ao final do array
+
+- unshift() -> para adicionar um elemento ao início do array, os elementos que já existem no array vão mudar de índice, serão empurrados para frente 
+
+- pop() -> remove o último elemento do array, interessante saber que ele retorna o elemento que está sendo removido, ou seja, se quiser salvar esse elemento em uma variável é possível 
+
+- shift() -> remove o primeiro elemento do array, assim como o pop ele também retorna o elemento que está sendo removido
+
+- slice() -> funciona da mesma forma que funciona com as strings
+
+- delete -> esse atributo deleta um elemento de um índice sem mexer nos índices de outros elementos, onde foi removido o elemento fica um espaço vazio
+
+- length -> retorna o tamanho do array 
+
+- para copiar o valor de um array para outra variável sem que isso seja passado por referência basta utilizar [...array], EX: let b = [...a];
+
+- sempre seus elementos estarão dentro de colchetes e serão separados por vírgula 
+
+- o JS não restringe os tipos de dados que estarão dentro de um array, ou seja, você pode ter dentro de um mesmo array strings, numeros, booleanos, etc, mas não é uma boa prática isso, sendo assim, sempre será melhor criar arrays com os mesmos tipos de dados dentro desse array, isso é uma boa prática de programação 
+
+----------------------------------------------------------------------------------------------------------
+
+OBJETOS
+
+function criaPessoa(nome, sobrenome, idade) {
+    return { nome, sobrenome, idade }; // quando o atributo e o valor tem o mesmo nome não é necessário colocar 'chave: valor', pode colocar daquela forma que está representada
+}
+
+- dentro do objeto é possível criar métodos para ele sem usar a palavra 'function' antes, é possível deixar apenas o nome do método 
+EXEMPLO:
+const pessoa1 = {
+    nome: 'Luiz',
+    sobrenome: 'Miranda',
+    idade: 25,
+
+    fala() {
+        console.log(`${this.nome} ${this.sobrenome} está falando oi...`);
+    }
+};
+
+- quando quero chamar algo dentro do próprio objeto é possível usar a palavra reservada 'this', que referencia o próprio objeto
+
+- para copiar o valor de um objeto para outra variável sem que isso seja passado por referência basta utilizar {...object}, EX: let b = {...a};
+
+----------------------------------------------------------------------------------------------------------
+
+OBJETOS DO JS
+
+- Math -> é um objeto que tem alguns métodos matemáticos prontos que você pode utilizar
+-- Math.ceil() -> é passado dentro dos parênteses o que você quer arredondar para cima
+-- Math.floor() -> é passado dentro dos parênteses o que você quer arredondar para baixo
+-- Math.round() -> é passado dentro dos parênteses o que você quer arredondar, ele automaticamente arredondará para cima ou para baixo dependendo do número, vai arredondar para o mais próximo
+-- Math.max() -> é passado por parâmetro uma sequência de números e ele retorna o maior número que foi passado
+-- Math.min() -> é passado por parâmetro uma sequência de números e ele retorna o menor número que foi passado
+-- Math.random() -> gera um número aleatório entre 0 e 1 (1 não é incluído, ou seja, nunca irá gerar o número 1), nesse caso irá gerar um número decimal 
+-- Math.PI -> é o valor de pi caso queira utilizar em algum cálculo
+-- Math.pow() -> passado por parâmetro a base e o expoente, usado para potenciação, pouco utilizado pois tem o operador ** que faz a mesma coisa 
+-- Math.sqrt() -> usado para fazer a conta de raiz quadrada, porém, uma forma fácil de se fazer isso é utilizando o operador de potência, numero ** (1/2) -> isso também retorna a raiz quadrada de um número 
+
+----------------------------------------------------------------------------------------------------------
 
 OBSERVAÇÕES 
 
 - JS aceita que você faça uma inversão dos valores de variáveis mais facilmente utilizando colchetes, por exemplo, varA, varB, varC quero inverter os valores sem criar uma nova variável, para isso basta usar os colchetes [varA, varB, varC] = [varB, varC, varA] -> agora o varA recebeu o valor antigo de varB, o varB recebeu o valor antigo de varC e o varC recebeu o valor antigo de varA
+
 - usar a barra invertida indica o escape de algum caractere que vem depois ou ele vai fazer alguma formatação como é o caso de \t que é um tab dentro do texto, então para colocar o \ dentro do texto você usa duas \\ dessa forma uma contra barra será printada dentro da sua string
+
+- no JS quando se soma números de ponto flutuante ele fica impreciso, vai dar um número quebrado, EX: 0.7 + 0.1 = 0.799999... para consertar isso, usa-se a função Numbar(soma.toFixed(2)), isso resultará em o número sendo deixado com apenas duas casas decimais e quando ele for inteiro ele será convertido para inteiro e quando não for inteiro ele será convertido para ponto flutuante
+
+- ficar atento, números divididos por zero em JS não dão erro, eles são retornados como true ainda, ou seja, é uma conta válida dentro do JS, retornará um tipo de dado chamado Infinity
