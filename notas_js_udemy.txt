@@ -98,8 +98,6 @@ raiz();
 
 const raiz = n => n ** 0.5; // Maneira mais curta de declaração de uma arrow function
 
-- typeof -> retorna o tipo de um dado, por exemplo, se quiser saber que tipo de dado uma variável está armazenando
-
 - parseInt() -> converter um tipo de dado em um número inteiro, se tentar converter um número decimal ele irá retornar apenas o valor inteiro do número e irá ignorar o que vem após o ponto
 
 - parseFloat() -> converter um tipo de dado em um número de ponto flutuante
@@ -151,6 +149,12 @@ const raiz = n => n ** 0.5; // Maneira mais curta de declaração de uma arrow f
 - array.pop() -> remove o último elemento do array, interessante saber que ele retorna o elemento que está sendo removido, ou seja, se quiser salvar esse elemento em uma variável é possível 
 
 - array.shift() -> remove o primeiro elemento do array, assim como o pop ele também retorna o elemento que está sendo removido
+
+- document.createElement() -> cria um elemento HTML no JS, ou seja, para criar um novo elemento basta fazer dessa forma, dentro dos parênteses é passado o elemento que quer que seja criado 
+
+- element.appendChild() -> usado para inserir um elemento em outro, ou seja, nesse caso, 'element' seria um elemento qualquer, podendo ser uma div, section ou qualquer outro e o appendChild irá inserir um novo elemento dentro desse elemento, o que quer que seja inserido é passadoa dentro dos parênteses
+
+- classList() -> usado para fazer uma listagem das classes de um elemento, geralmente é utilizado para ver se há uma certa classe dentro do elemento(contains()) e adicionar(add()) ou remover (remove()) uma classe
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -226,6 +230,67 @@ OBJETOS DO JS
 -- Math.PI -> é o valor de pi caso queira utilizar em algum cálculo
 -- Math.pow() -> passado por parâmetro a base e o expoente, usado para potenciação, pouco utilizado pois tem o operador ** que faz a mesma coisa 
 -- Math.sqrt() -> usado para fazer a conta de raiz quadrada, porém, uma forma fácil de se fazer isso é utilizando o operador de potência, numero ** (1/2) -> isso também retorna a raiz quadrada de um número 
+
+- Date -> é um objeto específico para manipulação de Data, sempre que for utilizá-la primeiro precisa instanciar um objeto dela, ou seja, 'const data = new Date();'
+-- no objeto Date a data está em milésimos de segundos
+-- é passado por parâmetro da classe os milissegundos caso seja um parâmetro apenas, caso sejam mais ele será identificado o primeiro como o ano, o segundo como mês, o terceiro como o dia, o quarto como as horas, o quinto como os minutos, o sexto como os segundos e o último como os milissegundos, os meses nessa classe começam do 0 e vão até o 11, não é do 1 - 12, se não for passado nenhum valor por parâmetro ele pega a data do sistema
+-- é possível também passar a data como uma string que seja interpretada pelo JS, se for num formato que ele entende ele irá converter essa string em uma data válida
+-- data.getDate() -> retorna o dia do mês que foi passado para a data
+-- data.getMonth -> retorna o mês que foi passado para a data, esse mês é no formato do JS ou seja, de 0-11
+-- data.getFullYear -> retorna o ano que foi passado para a data 
+-- data.getHours() -> retorna a hora que foi passada para a data 
+-- data.getMinutes() -> retorna os minutos que foram passados para a data 
+-- data.getSeconds() -> retorna os segundos que foram passados para a data
+-- data.getMilliseconds() -> retorna os milissegundos que foram passados para a data 
+-- data.getDay() -> retorna o dia da semana que está, esse valor é de 0 (Domingo) até 6 (Sábado)
+-- Date.now() -> retorna os milésimos de segundos da data atual 
+
+----------------------------------------------------------------------------------------------------------
+
+OPERADORES DE COMPARAÇÃO
+
+- > -> maior que
+- >= -> maior que ou igual a 
+- < -> menor que
+- <= -> menor que ou igual a 
+- == -> igual a (valor)
+- === -> igual a (valor e tipo)
+- != -> diferente de (valor)
+- !== -> diferente de (valor e tipo)
+
+----------------------------------------------------------------------------------------------------------
+
+OPERADORES LÓGICOS 
+
+- && -> AND -> E -> todas as expressões precisam ser verdadeiras para retornar verdadeiro 
+- || -> OR -> OU -> pelo menos uma expressão precisa ser verdadeira para retornar verdadeiro 
+- ! -> NOT -> NÃO -> inverte o valor da expressão, ou seja, se retornar true ele irá inverter para false 
+
+----------------------------------------------------------------------------------------------------------
+
+OPERADOR TERNÁRIO
+
+- o operador ternário é um IF e ELSE encurtado, a ideia é ter uma condição e se ela for verdadeira retornar um valor se não retornar outro, sua estrutura é bem simples 
+
+- (condição) ? 'Valor retornado para verdadeiro' : 'Valor retornado para falso';
+
+----------------------------------------------------------------------------------------------------------
+
+VALORES FALSY
+
+- 0 -> se usado em uma condição seu valor booleano é falso 
+- '' ou "" ou `` -> se usado em uma condição seu valor booleano é falso
+- null -> se usado em uma condição seu valor booleano é falso
+- undefined -> se usado em uma condição seu valor booleano é falso
+- NaN -> se usado em uma condição seu valor booleano é falso
+
+----------------------------------------------------------------------------------------------------------
+
+SHORT-CIRCUIT
+
+- no JS, quando há uma expressão lógica ele entende os operadores e vai procurar apenas o valor que condizer com a operação, por exemplo, se tenho uma expressão que utiliza o '&&', ele vai procurar dentro da expressão se houver algo false ele retorna esse valor false -> console.log('João' && '' && 1) => o retorno é a string vazia '', pois, esse valor é considerado falso pelo JS, se não, se todos os valores forem verdadeiros é retornado o último valor
+
+- o mesmo vale para o operador OR || -> esse operador fará a mesma coisa, porém, a sua diferença é que ele retoirna o primeiro valor true que encontrar, se todos os valores forem falsos o que será retornado é o último valor 
 
 ----------------------------------------------------------------------------------------------------------
 
