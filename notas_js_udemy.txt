@@ -1,8 +1,8 @@
 VARIÁVEIS
 
-- var -> não é bom utilizar mais var, é uma declaração antiga, não é bom utilizar por conta de seu escopo ser global, ou seja, ser vista até mesmo no dom do projeto não somente dentro das funções ou blocos de código igual ocorre com o let, pode ser redeclarada que não irá gerar um erro
+- var -> não é bom utilizar mais var, é uma declaração antiga, não é bom utilizar por conta de seu escopo ser global, ou seja, ser vista até mesmo no dom do projeto não somente dentro das funções ou blocos de código igual ocorre com o let, pode ser redeclarada que não irá gerar um erro, tem escopo de função, ou seja, se for declarado dentro da função fora dela não é possível visualizar a variável
 
-- let -> mais utilizada atualmente, seu escopo é local até mesmo para blocos de código como estruturas de repetição e estruturas de condição, usar sempre LET e não VAR, se redeclarar a variável com o let ela irá gerar um erro falando que a variável já foi declarada
+- let -> mais utilizada atualmente, seu escopo é local até mesmo para blocos de código como estruturas de repetição e estruturas de condição, usar sempre LET e não VAR, se redeclarar a variável com o let ela irá gerar um erro falando que a variável já foi declarada, tem escopo de bloco, ou seja, se declarado dentro de um bloco de código não poderá ser utilizado fora dele, por exemplo dentro de uma estrutura IF, assim como pode ser declarada uma variável let com o mesmo nome dentro do if e fora dele que não irá gerar um erro
 
 - const -> segue a mesma ideia do let, porém, a constante não aceita uma reatribuição de valores, ou seja, ela aceita apenas que você coloque nela um valor inicial e até o fim da aplicação ela continua tendo o mesmo valor, se a const for um array ou objeto é possível alterar seu valor, ou seja, é impossível pra uma const ser reatribuído um valor, porém, é possível alterar um valor de um array para o qual uma constante esteja apontando, o mesmo vale para objetos
 
@@ -286,6 +286,50 @@ VALORES FALSY
 
 ----------------------------------------------------------------------------------------------------------
 
+ATRIBUIÇÃO VIA DESESTRUTURAÇÃO DE ARRAYS
+
+- pode fazer uma desestruturação de um array para criar variáveis com os valores desse array
+
+const array = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000];
+const [peimeiroNumero, segundoNumero] = array; -> primeiroNumero terá o valor 1000 e segundoNumero terá valor 2000
+
+const [primeiroNumero, segundoNumero, ...resto] = array; -> primeiroNumero terá 1000, segundoNumero terá 2000 e resto terá todos os outros valores que sobraram
+
+const [um, , tres, , cinco] = array; -> tem a mesma ideia porém, vai pulando alguns valores
+
+- ... -> tem dois nomes, pode ser chamado de rest operator e spread operator, ou seja, tem duas funcionalidades, o rest é para que ele pegue o resto e o spread é para que ele espalhe os valores que sobraram
+
+----------------------------------------------------------------------------------------------------------
+
+ATRIBUIÇÃO VIA DESESTRUTURAÇÃO DE OBJETOS 
+
+- segue a mesma ideia da desestruturação de arrays, porém, nesse caso precisa-se especificar o campo que quer desestruturar
+
+const pessoa = {
+    nome: 'Luiz',
+    sobrenome: 'Miranda',
+    idade: 30,
+    endereco: {
+        rua: 'Acácias',
+        numero: 235
+    }
+};
+
+const { nome, sobrenome } = pessoa; -> variável nome tem o valor de 'Luiz' agora e variável sobrenome tem o valor de 'Miranda'
+
+// para criar uma nova variável que irá receber o valor que tem em algum campo basta colocar nomeCampo: nomeVariável
+const { nome: teste } = pessoa; -> variável teste tem o valor de 'Luiz' agora
+
+// para pegar a rua por exemplo vai seguir a mesma ideia, porém, é necessário pegar o campo endereco e especificar depois os outros campos
+const { endereco: { rua, numero } } = pessoa; -> agora a variável rua tem o valor 'Acácias' e a variável numero tem o valor 235
+
+// é possível colocar um valor padrão também como se fosse a função
+const { endereco: { rua = 'Hortências', numero } } = pessoa; -> agora a variável rua tem o valor 'Acácias', porém, se rua estivesse vazia ela receberia o valor padrão de 'Hortências' e a variável numero tem o valor 235
+
+- é possível também usar o operador de rest (...) para pegar os valores que sobrarem também 
+
+----------------------------------------------------------------------------------------------------------
+
 SHORT-CIRCUIT
 
 - no JS, quando há uma expressão lógica ele entende os operadores e vai procurar apenas o valor que condizer com a operação, por exemplo, se tenho uma expressão que utiliza o '&&', ele vai procurar dentro da expressão se houver algo false ele retorna esse valor false -> console.log('João' && '' && 1) => o retorno é a string vazia '', pois, esse valor é considerado falso pelo JS, se não, se todos os valores forem verdadeiros é retornado o último valor
@@ -303,3 +347,5 @@ OBSERVAÇÕES
 - no JS quando se soma números de ponto flutuante ele fica impreciso, vai dar um número quebrado, EX: 0.7 + 0.1 = 0.799999... para consertar isso, usa-se a função Numbar(soma.toFixed(2)), isso resultará em o número sendo deixado com apenas duas casas decimais e quando ele for inteiro ele será convertido para inteiro e quando não for inteiro ele será convertido para ponto flutuante
 
 - ficar atento, números divididos por zero em JS não dão erro, eles são retornados como true ainda, ou seja, é uma conta válida dentro do JS, retornará um tipo de dado chamado Infinity
+
+- JS faz hoisting, ou seja, qualquer variável criada com var ou qualquer function é elevada ao topo do arquivo, ou seja, eles sempre ficam a cima de todo o código, por isso que é indiferente você criar a função e depois chamá-la ou chamá-la e depois criar a função, pois, para o JS ele sempre coloca na ordem certa para essa chamada 
