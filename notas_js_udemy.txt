@@ -175,7 +175,9 @@ setTimeout(function() {
 
 // esse exemplo irá executar o timer durante 10 segundos que é quando será chamado o setTimeout e fará o setInterval parar 
 
+- remove() -> usado para remover, pode ser um elemento, uma classe, etc 
 
+- trim() -> remove os espaços que tiverem em uma string
 
 ----------------------------------------------------------------------------------------------------------
 
