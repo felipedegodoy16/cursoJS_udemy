@@ -158,6 +158,25 @@ const raiz = n => n ** 0.5; // Maneira mais curta de declaração de uma arrow f
 
 - getComputedStyle() -> pegar os estilos CSS de um elemento que eu passar como parâmetro dessa função 
 
+- setInterval() -> é uma função que seta um intervalo de tempo para fazer alguma coisa, geralmente é passado como parâmetro outra função por referência, ou seja, essa função é passada sem os parênteses, que significa que ela não está sendo chamada para ser executada e passado o tempo também em milissegundos, geralmente é criada uma função anônima como parâmetro para não ficar criando funções para isso, essa função executará para sempre se ela não tiver algo para pará-la, geralmente é colocada dentro de uma variável para que possa ser parada em algum momento
+
+- clearInterval() -> usada para parar a função setInterval(), é passado o nome do setInterval como parâmetro para que ela saiba qual função parar 
+
+- setTimeout() -> parecido com o setInterval(), porém, ele executa apenas uma vez
+
+EX:
+const timer = setInterval(function() {
+    console.log('teste');
+}, 1000);
+
+setTimeout(function() {
+    clearInterval(timer);
+}, 10000);
+
+// esse exemplo irá executar o timer durante 10 segundos que é quando será chamado o setTimeout e fará o setInterval parar 
+
+
+
 ----------------------------------------------------------------------------------------------------------
 
 ATRIBUTOS
@@ -248,6 +267,13 @@ OBJETOS DO JS
 -- data.getMilliseconds() -> retorna os milissegundos que foram passados para a data 
 -- data.getDay() -> retorna o dia da semana que está, esse valor é de 0 (Domingo) até 6 (Sábado)
 -- Date.now() -> retorna os milésimos de segundos da data atual 
+-- data.toLocaleTimeString ou data.toLocaleString -> é passado por parâmetro para essas funções o local e um objeto
+data.toLocaleString('pt-BR', {
+    hour: '2-digit', // coloca dois dígitos na hora
+    minute: '2-digit', // coloca dois dígitos nos minutos
+    second: '2-digit', // coloca dois dígitos nos segundos
+    hour12: false // torna o horário de 12 horas falso, ou seja, fica no padrão brasileiro de 24 horas 
+})
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -390,6 +416,20 @@ array.forEach(function(el, in, array) {
 });
 
 - os parâmetros que podem ser passados para essa função são o elemento, índice e o próprio array, sendo passados é possível utilizá-los dentro da função 
+
+----------------------------------------------------------------------------------------------------------
+
+TRY, CATCH, THROW E FINALLY
+
+- try -> tenta executar o bloco de código e para se acha algum erro, executa tudo e para no erro, não executando dele para baixo
+
+- catch -> é executado o bloco de código do catch quando é gerado algum erro no try, o catch recebe como parâmtero o erro que foi gerado 
+
+- throw -> usado para 'jogar' o erro, esse throw geralmente é sucedido de uma função contrutora que irá mostrar ao usuário onde ocorreu o erro e qual foi o erro, se o throw estiver dentro de uma função a função é parada de executar imediatamente
+
+throw new ReferenceError('x e y não são números'); -> esse é um exemplo de função contrutora, o que é passado dentro dos parênteses vai ser enviado ao catch para mostrar ao usuário
+
+- finally -> sempre é executado independentemente se gerou erro ou não
 
 ----------------------------------------------------------------------------------------------------------
 
