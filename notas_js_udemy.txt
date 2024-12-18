@@ -156,6 +156,8 @@ const raiz = n => n ** 0.5; // Maneira mais curta de declaração de uma arrow f
 
 - classList() -> usado para fazer uma listagem das classes de um elemento, geralmente é utilizado para ver se há uma certa classe dentro do elemento(contains()) e adicionar(add()) ou remover (remove()) uma classe
 
+- getComputedStyle() -> pegar os estilos CSS de um elemento que eu passar como parâmetro dessa função 
+
 ----------------------------------------------------------------------------------------------------------
 
 ATRIBUTOS
@@ -215,6 +217,8 @@ const pessoa1 = {
 - quando quero chamar algo dentro do próprio objeto é possível usar a palavra reservada 'this', que referencia o próprio objeto
 
 - para copiar o valor de um objeto para outra variável sem que isso seja passado por referência basta utilizar {...object}, EX: let b = {...a};
+
+- para chamar alguma chave de um objeto basta utilizar objeto.chave ou objeto['chave']
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -335,6 +339,57 @@ SHORT-CIRCUIT
 - no JS, quando há uma expressão lógica ele entende os operadores e vai procurar apenas o valor que condizer com a operação, por exemplo, se tenho uma expressão que utiliza o '&&', ele vai procurar dentro da expressão se houver algo false ele retorna esse valor false -> console.log('João' && '' && 1) => o retorno é a string vazia '', pois, esse valor é considerado falso pelo JS, se não, se todos os valores forem verdadeiros é retornado o último valor
 
 - o mesmo vale para o operador OR || -> esse operador fará a mesma coisa, porém, a sua diferença é que ele retoirna o primeiro valor true que encontrar, se todos os valores forem falsos o que será retornado é o último valor 
+
+----------------------------------------------------------------------------------------------------------
+
+FOR IN
+
+- usado para percorrer cada índice de elemento de um vetor (array) ou chaves de um objeto 
+
+const frutas = ['Pera', 'Maçã', 'Uva'];
+for(let i in frutas) {
+    console.log(i);
+}
+
+- nesse caso ele irá mostrar os índices do array, ou seja, irá printar os números dos índices e não os valores, para printar os valores bastaria colocar console.log(frutas[i]);
+
+const pessoa = {
+    nome: 'Luiz',
+    sobrenome: 'Miranda',
+    idade: 30
+};
+for(let chave in pessoa) {
+    console.log(chave, pessoa[chave]); -> irá exibir o nome da chave e o valor dessa chave para esse objeto, nesse caso 'nome Luiz' primeiro;
+}
+
+- FOR IN COM QUALQUER TIPO DE DADO QUE TENHA ÍNDICE (ARRAYS, STRINGS OU OBJETOS)
+
+----------------------------------------------------------------------------------------------------------
+
+FOR OF 
+
+- mesma coisa do FOR IN, a única diferença é que com o IN é retornado o índice de um array e a chave de um objeto, com o OF é retornado o valor do array ou da string
+
+const frutas = ['Pera', 'Maçã', 'Uva'];
+for(let i of frutas) {
+    console.log(i);
+}
+
+- nesse caso ele irá mostrar os valores do array, ou seja, irá printar o nome das frutas
+
+- FOR OF APENAS COM ITERÁVEIS (ARRAYS OU STRINGS)
+
+----------------------------------------------------------------------------------------------------------
+
+FOREACH
+
+- usado como uma função de arrays, ou seja, é chamado a partir de um array, não tem como chamá-lo sozinho
+
+array.forEach(function(el, in, array) {
+    // código
+});
+
+- os parâmetros que podem ser passados para essa função são o elemento, índice e o próprio array, sendo passados é possível utilizá-los dentro da função 
 
 ----------------------------------------------------------------------------------------------------------
 
