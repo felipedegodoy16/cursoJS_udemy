@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+:root {
+    --primary-color: #0f8884;
+    --primary-color-darker: #094b49;
+}
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--primary-color);
+    font-family: 'Open sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+.container {
+    max-width: 640px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+form input, form label, form button {
+    display: block;
+    width: 100%;
+}
+
+form input {
+    margin-bottom: 10px;
+    font-size: 24px;
+    height: 50px;
+    padding: 0 20px;
+}
+
+form input:focus {
+    outline: 1px solid var(--primary-color);
+}
+
+form button {
+    margin-top: 30px;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    height: 50px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: var(--primary-color-darker);
+}
+
+.display {
+    font-size: 2em;
+    width: 100%;
+    text-align: right;
+}
+
+table {
+    width: 100%;
+}
+
+.btn {
+    font-size: 1em;
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: #c2c2c2;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #919191;
+}
+
+.btn-clear {
+    background-color: #f34a4a;
+}
+
+.btn-clear:hover {
+    background-color: #9e3030;
+}
+
+.btn-del {
+    background-color: #fa7d35;
+}
+
+.btn-del:hover {
+    background-color: #c7642a;
+}
+
+.btn-eq {
+    background-color: rgb(67, 167, 248);
+}
+
+.btn-eq:hover {
+    background-color: rgb(55, 131, 194);
+}

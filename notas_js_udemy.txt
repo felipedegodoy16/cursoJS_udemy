@@ -90,13 +90,72 @@ const raiz = function () {
 };
 raiz();
 
-// Arrow Function 
+// Arrow Function -> não muda o comportamento do 'this' -> MUITO IMPORTANTE
 const raiz = () => {
     /* código */
 };
 raiz();
 
 const raiz = n => n ** 0.5; // Maneira mais curta de declaração de uma arrow function
+
+- uma coisa interessante que tem apenas para as functions expressions, ou seja, não funciona para as arrow functions é o objeto 'arguments', ou seja, uma função pode estar recebendo inúmeros argumentos porém, não estar diretamente recebendo eles, esses valores acabam ficando armazenados em um objeto chamado arguments, onde cada índice desse objeto conterá um valor que foi passado como argumento para a função 
+
+function funcao() {
+    arguments // esse objeto armazena todos os valores que foram passados para a função
+}
+funcao('valor', 1, 2, 3, 4);
+
+- no JS se houver mais argumentos que parâmetros ele irá armazenar o número de argumentos que for o número de variáveis, se ocorrer o contrário, os parâmetros que não receberam nenhum valor serão inicializados ccom undefined
+
+- a função pode receber parâmetros para serem usados dentro da mesma, é possível passar quantos argumentos quiser
+
+- é possível passar argumentos para uma função assim como é possível estabelecer valores padrões para os argumentos, e para que esses valores padrões sejam colocados em vigor há duas maneiras de se fazer, ou não passar nenhum argumento ou onde eu quero que ele tenha o valor padrão da função eu passe 'undefined'
+
+- é possível também fazer atribuição por desestruturação nos argumentos de uma função 
+
+function funcao({ nome, sobrenome, idade }) {
+    // código;
+}
+funcao({ nome: 'Luiz', sobrenome: 'Otávio', idade: 30 });
+
+- é possível também usar o rest operator para pegar o resto dos valores, ele deve ser o último parâmetro a ser passado para a função, geralmente não é usado o objeto arguments, é mais comum se ver as pessoas utilizando o rest operator com 'args', '...args'
+
+function conta(operador, acumulador, ...numeros) {
+    // operador = '+';
+    // acumulador = 0;
+    // numeros = [10, 20, 30, 40];
+}
+conta('+', 0, 10, 20, 30, 40);
+
+- é possível retornar funções dentro de outras funções, é bem usado para não repetir código e deixar seu código mais limpo e assertivo
+
+function criaMultiplicador(multiplicador) {
+    return function(n) {
+        return n * multiplicador;
+    };
+}
+
+const duplica = criaMultiplicador(2);
+const triplica = criaMultiplicador(3);
+const quadriplica = criaMultiplicador(4);
+
+console.log(duplica(2)); // 4
+console.log(triplica(2)); // 6
+console.log(quadriplica(2)); // 8
+
+- CLOSURE -> habilidade que uma função tem de acessar seu escopo léxico
+
+- CALLBACK -> são basicamente coisas que quero chamar depois que alguma ação for finalizada 
+
+- IIFE (Immediately Invoked Function Expression) FUNÇÕES IMEDIATAS -> basicamente essa função ao mesmo tempo que ela é criada ela já é invocada imediatamente
+(function() {
+    // código;
+})();
+// assim se cria uma função e imediatamente já a invoca para ser usada, geralmente utilizada para fugir do escopo global de uma aplicação, a ideia é que ela envolva todo o código JS da sua aplicação porém já o invocando imediatamente 
+
+- FACTORY FUNCTIONS (FUNÇÕES FÁBRICA) -> são as funções que criam objetos e retornam eles
+
+- sempre que for passar uma função como argumento de outra função ou algo do tipo, precisa ser passada por referência, ou seja, precisa passar a função sem os parênteses
 
 - parseInt() -> converter um tipo de dado em um número inteiro, se tentar converter um número decimal ele irá retornar apenas o valor inteiro do número e irá ignorar o que vem após o ponto
 
@@ -179,6 +238,8 @@ setTimeout(function() {
 
 - trim() -> remove os espaços que tiverem em uma string
 
+- bind() -> essa função geralmente é usada junto de uma função para bindar oputro valor pra algo, geralmente para mudar o comportamento do 'this'
+
 ----------------------------------------------------------------------------------------------------------
 
 ATRIBUTOS
@@ -235,11 +296,15 @@ const pessoa1 = {
     }
 };
 
-- quando quero chamar algo dentro do próprio objeto é possível usar a palavra reservada 'this', que referencia o próprio objeto
+- quando quero chamar algo dentro do próprio objeto é possível usar a palavra reservada 'this', que referencia o próprio objeto, o 'this' referencia quem chamou a função, ou seja, nem sempre por estar dentro de um objeto esse this vai estar referenciando o próprio objeto, as vezes ele pode por exemplo estar referenciando o document dependendo de como for utilizado 
 
 - para copiar o valor de um objeto para outra variável sem que isso seja passado por referência basta utilizar {...object}, EX: let b = {...a};
 
 - para chamar alguma chave de um objeto basta utilizar objeto.chave ou objeto['chave']
+
+- se um método dentro do objeto tiver a palavra 'get' antes de sua declaração ele passa a ser um atributo do objeto e não mais um método apenas, ou seja, para chamar esse método basta apenas chamar seu nome, não precisando chamar seu nome com os ()
+
+- se um método dentro do objeto tiver a palavra 'set' antes de sua declaração ele se torna um método setter igual a orientação a objetos 
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -251,7 +316,7 @@ OBJETOS DO JS
 -- Math.round() -> é passado dentro dos parênteses o que você quer arredondar, ele automaticamente arredondará para cima ou para baixo dependendo do número, vai arredondar para o mais próximo
 -- Math.max() -> é passado por parâmetro uma sequência de números e ele retorna o maior número que foi passado
 -- Math.min() -> é passado por parâmetro uma sequência de números e ele retorna o menor número que foi passado
--- Math.random() -> gera um número aleatório entre 0 e 1 (1 não é incluído, ou seja, nunca irá gerar o número 1), nesse caso irá gerar um número decimal 
+-- Math.random() -> gera um número aleatório entre 0 e 1 (1 não é incluído, ou seja, nunca irá gerar o número 1), nesse caso irá gerar um número decimal (Math.random() * (max - min) + min) // isso gera números aleatórios entre o máximo e o mínimo estipulado por você, é bom fazer isso em uma função e quando for retornar o valor colocar Math.floor(num), pois, sempre é gerado um número decimal com o random
 -- Math.PI -> é o valor de pi caso queira utilizar em algum cálculo
 -- Math.pow() -> passado por parâmetro a base e o expoente, usado para potenciação, pouco utilizado pois tem o operador ** que faz a mesma coisa 
 -- Math.sqrt() -> usado para fazer a conta de raiz quadrada, porém, uma forma fácil de se fazer isso é utilizando o operador de potência, numero ** (1/2) -> isso também retorna a raiz quadrada de um número 
