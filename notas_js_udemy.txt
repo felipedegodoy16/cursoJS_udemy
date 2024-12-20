@@ -155,6 +155,31 @@ console.log(quadriplica(2)); // 8
 
 - FACTORY FUNCTIONS (FUNÇÕES FÁBRICA) -> são as funções que criam objetos e retornam eles
 
+- CONSTRUCTOR FUNCTIONS (FUNÇÕES CONSTRUTORAS) -> é muito parecido com o cosntructor das classes, sua primeira letra é maiúscula e para instanciar um objeto é preciso utilizar a palavra 'new', é possível criar atributos privados e públicos, sendo os privados declarados com 'let' ou 'const' enquanto os públicos são declarados apenas com a palavra 'this'
+function Pessoa(nome, sobrenome) {
+    const ID = 123456;
+    const metodoInterno = () => {
+        // código do método;
+    };
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+    this.metodo = () => {
+        // código desse método;
+    };
+}
+const p1 = new Pessoa('Luiz', 'Otávio');
+
+- FUNÇÕES RECURSIVAS -> basicamente é chamar sua função dentro dela mesma, tomar cuidado pois os motores do JS ou do navegador podem interpretar como um erro se ela ficar recursivando para sempre, e também para conseguir sair da recursividade da sua função 
+
+- FUNÇÕES GERADORAS -> é uma função que é possível fazer ela retornar um valor e depois continuá-la do mesmo ponto que ela havia parado, se utilizar o return dentro dela ai ela irá acabar no return, não será possível chamar seu próximo 'yield'
+function* geradora1() {
+    yield 'valor1';
+    yield 'valor2';
+} 
+const g1 = geradora1();
+console.log(g1.next().value); // valor1
+console.log(g1.next().value); // valor2
+
 - sempre que for passar uma função como argumento de outra função ou algo do tipo, precisa ser passada por referência, ou seja, precisa passar a função sem os parênteses
 
 - parseInt() -> converter um tipo de dado em um número inteiro, se tentar converter um número decimal ele irá retornar apenas o valor inteiro do número e irá ignorar o que vem após o ponto
