@@ -214,6 +214,8 @@ console.log(g1.next().value); // valor2
 
 - split() -> usado para dividir uma string em um array que seja separado através de algo que você passe, EX: string.split(' ') -> irá separar um índice para cada palavra que for espaçada por um espaço 
 
+- splice() -> faz tudo o que as funções pop, push, shift e unshift fazem e mais um pouco ainda, dentro dos parênteses pode ser passado (indice, delete, elem1, elem2, elem3...), basucamente passa o índice em que será iniciado, quantos elementos serãok removidos a partir daquele indice, e os elementos para serem inseridos, retorna um array com os elementos que foram removidos, se quiser remover todos os elementos após aquele índice que foi passado basta usar 'Number.MAX_VALUE'
+
 - toUpperCase() -> converter toda a string em upper case
 
 - toLowerCase() -> converter toda a string em lower case 
