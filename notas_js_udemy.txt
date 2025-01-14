@@ -267,6 +267,8 @@ setTimeout(function() {
 
 - bind() -> essa função geralmente é usada junto de uma função para bindar oputro valor pra algo, geralmente para mudar o comportamento do 'this'
 
+- concat() -> usado para concatenação
+
 ----------------------------------------------------------------------------------------------------------
 
 ATRIBUTOS
@@ -302,6 +304,8 @@ ARRAYS
 - sempre seus elementos estarão dentro de colchetes e serão separados por vírgula 
 
 - o JS não restringe os tipos de dados que estarão dentro de um array, ou seja, você pode ter dentro de um mesmo array strings, numeros, booleanos, etc, mas não é uma boa prática isso, sendo assim, sempre será melhor criar arrays com os mesmos tipos de dados dentro desse array, isso é uma boa prática de programação 
+
+- concat() -> usado para fazer uma concatenação, geralmente também é usado o spread operator
 
 ----------------------------------------------------------------------------------------------------------
 
