@@ -269,6 +269,65 @@ setTimeout(function() {
 
 - concat() -> usado para concatenação
 
+- endsWith() -> usado para verificar se uma string termina com algum caractere específico 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+FILTER
+
+- sempre retorna um array com a mesma quantidade de elementos ou menos elementos do que esse array
+- é uma função para Arrays, geralmente é passada uma função de callback para o filter com uma condição para retornar os valores
+- na função de callback é possível receber um valor de cada vez, o índice desse valor e o array como um todo 
+
+const numeros = [5, 50, 80, 1, 2, 3, 5, 8, 7, 11, 15, 22, 27];
+const numerosFiltrados = numeros.filter((valor, indice, array) => {
+    console.log(valor, indice, array);
+    return valor > 10;
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+MAP
+
+- sempre retorna um array com a mesma quantidade de elementos do array que iniciou
+- é uma função para Arrays, geralmente é passada uma função de callback para o map com uma condição que irá alterar e manipular os elementos
+- na função de callback é possível receber um valor de cada vez, o índice desse valor e o array como um todo 
+
+const numeros = [5, 50, 80, 1, 2, 3, 5, 8, 7, 11, 15, 22, 27];
+const dobro = numeros.map((valor, indice, array) => {
+    console.log(valor, indice, array);
+    return valor * 2;
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+REDUCE
+
+- essa função é utilizada para reduzir um array, é possível por exemplo retornar um array por exemplo, mas geralmente não é utilizado, é utilizado para reduzir um array para um único valor
+- é uma função para Arrays, geralmente é passada uma função de callback para o reduce com uma condição que irá manipular os dados e retornar 1 único valor
+- na função de callback é possível receber um acumulador, um valor de cada vez, o índice desse valor e o array como um todo 
+
+const numeros = [5, 50, 80, 1, 2, 3, 5, 8, 7, 11, 15, 22, 27];
+const total = numeros.reduce((acumulador, valor, indice, array) => {
+    console.log(acumulador, valor, indice, array);
+    acumulador += valor;
+    return acumulador;
+}, 0); // esse 0 é o valor inicial do acumulador
+
+const pessoas = [
+    { nome: 'Luiz', idade: 62 },
+    { nome: 'Maria', idade: 23 },
+    { nome: 'Eduardo', idade: 10 },
+    { nome: 'Letícia', idade: 15 },
+    { nome: 'Rosana', idade: 64 },
+    { nome: 'Wallace', idade: 63 },
+];
+const maisVelha = numeros.reduce((acumulador, valor) => {
+    if(acumulador.idade > valor.idade) return acumulador;
+    return valor;
+});
+console.log(maisVelha); // irá mostrar a Rosana com idade 64, ela é a mais velha, toda vez que é retornado um valor no reduce esse valor passa a ser o acumulador
+
 ----------------------------------------------------------------------------------------------------------
 
 ATRIBUTOS
