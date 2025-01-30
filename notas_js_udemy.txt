@@ -328,6 +328,21 @@ const maisVelha = numeros.reduce((acumulador, valor) => {
 });
 console.log(maisVelha); // irá mostrar a Rosana com idade 64, ela é a mais velha, toda vez que é retornado um valor no reduce esse valor passa a ser o acumulador
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+FOREACH
+
+- uma função que é utilizada para iterar sobre um array
+- é uma função para Arrays, geralmente é passada uma função de callback para o foreach com uma condição que irá manipular os dados
+- na função de callback é possível receber um valor de cada vez, o índice desse valor e o array como um todo 
+
+const numeros = [5, 50, 80, 1, 2, 3, 5, 8, 7, 11, 15, 22, 27];
+let total = 0;
+const total = numeros.forEach(valor => {
+    total += valor;
+});
+console.log(total);
+
 ----------------------------------------------------------------------------------------------------------
 
 ATRIBUTOS
