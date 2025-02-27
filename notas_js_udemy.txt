@@ -411,6 +411,74 @@ const pessoa1 = {
 
 - se um método dentro do objeto tiver a palavra 'set' antes de sua declaração ele se torna um método setter igual a orientação a objetos 
 
+- defineProperty - define uma propriedade do objeto, pode mexer na propriedade também 
+function Produto(nome, preco, estoque) {
+    this.nome = nome;
+    this.preco = preco;
+
+    Object.defineProperty(this, 'estoque', { // está mexendo nesse objeto, na propriedade estoque
+        enumerable: true, // define a propriedade no objeto
+        value: estoque, // define o valor da propriedade
+        writable: false, // permite alterar o valor ou não
+        configurable: true // é configurável ou não, ou seja, essa propriedade pode ser reconfigurada ou deletada
+    });
+}
+
+- defineProperties - define várias propriedades de um objeto ao mesmo tempo
+Object.defineProperties(this, {
+    nome: {
+        enumerable: true, // define a propriedade no objeto
+        value: nome, // define o valor da propriedade
+        writable: false, // permite alterar o valor ou não
+        configurable: true // é configurável ou não, ou seja, essa propriedade pode ser reconfigurada ou deletada
+    },
+    preco: {
+        enumerable: false, // define a propriedade no objeto
+        value: preco, // define o valor da propriedade
+        writable: true, // permite alterar o valor ou não
+        configurable: true // é configurável ou não, ou seja, essa propriedade pode ser reconfigurada ou deletada
+    }
+});
+
+- Funções de Objetos no JS
+
+-- Copiar um objeto para outro
+--- é possível utilizar o spread operator ou usar Object.assign({}, objeto, { propriedade: 'valor' });
+--- o spread operator é mais intuitivo, geralmente é mais utilizado
+
+-- Object.keys(objeto) -> mostra as chaves que esse objeto possui 
+
+-- Object.freeze(objeto) -> para congelar um objeto, torna o objeto algo que não pode ser alterado
+
+-- Object.getOwnPropertyDescriptor(obj, 'prop') -> retorna as propriedades daquela chave, como está seu writable, enumerable, configurable...
+
+-- Object.values(objeto) -> mostra os valores que esse objeto possui sem suas chaves
+
+-- Object.entries(objeto) -> retorna um array de chave e valor para cada uma das chaves que existem
+
+- Prototypes -> são propriedades de um objeto que são criadas pelo pai do objeto e herdadas pelo filho, ou seja, não são instanciadas sempre, são instanciadas apenas quando precisam
+Pessoa.prototype.estouAqui = 'Hahaha'; // cria-se uma propriedade estouAqui dentro da propriedade prototype
+
+- Object.setPrototypeOf(objB, objA); // isso vai alterar para que o __proto__ de objB seja o objA
+- Object.getPrototypeOf(objA); // utilizado para acessar o prototype de um objeto, maneira certa de se acessar
+
+- const produto = Object.create(Produto.prototype); // cria um objeto produto e define sua prototype como a prototype da função construtora Produto
+
+- "Herança" em JS, seria mais uma delegação onde é possível passar protótipos de um objeto para outro, assim, se alguma propriedade não existir no primeiro protótipo ele busca no segundo e assim por diante até o topo da cadeia de protótipos
+function Produto(nome, preco) {
+    this.nome = nome;
+    this.preco = preco;
+}
+
+function Caneca(nome, preco, material){
+    Produto.call(this, nome, preco);
+}
+
+Caneca.prototype = Object.create(Produto.prototype);
+Caneca.prototype.constructor = Caneca;
+
+// há duas "classes" sendo elas Produto e Caneca, assim caneca herda Produto, a função call é usada para se chamar a outra função construtora
+
 ----------------------------------------------------------------------------------------------------------
 
 OBJETOS DO JS
