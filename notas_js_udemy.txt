@@ -479,6 +479,9 @@ Caneca.prototype.constructor = Caneca;
 
 // há duas "classes" sendo elas Produto e Caneca, assim caneca herda Produto, a função call é usada para se chamar a outra função construtora
 
+- Polimorfismo em JS
+-- É basicamente quando duas classes filhas ou duas funções construtoras filhas herdam um método da classe pai e sobrescrevem esse método para seus próprios interesses, ou seja, o mesmo método é diferente para as duas classes filhas mesmo herdando esse método da classe pai
+
 ----------------------------------------------------------------------------------------------------------
 
 OBJETOS DO JS
