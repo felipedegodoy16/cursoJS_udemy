@@ -482,6 +482,10 @@ Caneca.prototype.constructor = Caneca;
 - Polimorfismo em JS
 -- É basicamente quando duas classes filhas ou duas funções construtoras filhas herdam um método da classe pai e sobrescrevem esse método para seus próprios interesses, ou seja, o mesmo método é diferente para as duas classes filhas mesmo herdando esse método da classe pai
 
+- Classe em JS
+-- É declarada apenas colocando 'class Nome {}'
+-- os métodos get e set não são usados apenas para os atributos da classe, podem ser usados como uma simples função com algum outro nome sem ser o nome dos atributos, porém para chamá-los utiliza-se como se fossem atributos 
+
 ----------------------------------------------------------------------------------------------------------
 
 OBJETOS DO JS
