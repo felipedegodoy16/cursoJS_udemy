@@ -486,6 +486,32 @@ Caneca.prototype.constructor = Caneca;
 -- É declarada apenas colocando 'class Nome {}'
 -- os métodos get e set não são usados apenas para os atributos da classe, podem ser usados como uma simples função com algum outro nome sem ser o nome dos atributos, porém para chamá-los utiliza-se como se fossem atributos 
 
+- Métodos estáticos
+-- sempre que eu não utilizar a palavra 'this' dentro de um método posso transformá-lo em um método estático
+-- usado para fazer algo em todos os objetos de uma classe, é chamado através do nome da própria classe 
+class ControleRemoto {
+    constructor(tv) {
+        this.tv = tv;
+        this.volume = 0;
+    }
+
+    aumentarVolume() {
+        this.volume += 2;
+    }
+
+    diminuirVolume() {
+        this.volume -= 2;
+    }
+
+    static trocaPilha() {
+        console.log('Ok, vou trocar.');
+    }
+}
+
+const controle1 = new ControleRemoto('Samsung');
+
+ControleRemoto.trocaPilha();
+
 ----------------------------------------------------------------------------------------------------------
 
 OBJETOS DO JS
