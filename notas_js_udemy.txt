@@ -547,6 +547,26 @@ esperaAi('Frase 1', rand(1, 3))
 
 -- catch -> usada para quando ocorrer algum erro e quisermos tratar esse erro, vai ser útil quando quisermos usar o 'reject' passado como parâmetro da 'promise', o 'catch' recebe como parâmetro o que estamos passando de argumento para o 'reject', caso ocorra um 'reject' ele não executa os outros 'resolve', ele para a execução do código da 'promise', o que está fora da promise continua rodando mesmo assim
 
+-- promises possuem 3 estados -> ocorrerá quando não usarmos o 'await' para esperar a 'prmise' terminar de ser executada ou quando não utilizamos o 'then' e não esperamos ela terminar de ser executada
+--- pending -> pendente
+--- fullfilled -> resolvida
+--- rejected -> rejeitada
+
+----------------------------------------------------------------------------------------------------------
+
+BABEL E "CAN I USE..."
+- "can i use" é um site que é utilizado para verificar se alguma instrução de alguma linguagem é suportada em certos navegadores
+- site 'babeljs.io' -> usado para transformar código js que usamos hoje em dia para um código js mais antigo suportado  por mais navegadores
+
+- usamos o babel na aplicação para traduzir nosso código para um código mais antigo, é necessário utilizar o comando 'npm init -y' para instalar o 'package.json'
+- depois utilizar o 'npm install @babel/cli @babel/core @babel/preset-env' -> instala o 'package-lock.json'
+- utilizar o 'npm install --save-dev @babel/cli @babel/preset-env @babel/core' para instalar para migrar o arquivo da parte de 'dependencies' do 'package.json' para a parte de 'devDependencies'
+- 'npx babel main.js -o bundle.js' -> esse comando cria um arquivo 'bundle.js', se ele não existir, e salva o código traduzido dentro desse arquivo, geralmente quando se utiliza isso é esse arquivo que será chamado na tag 'script' do seu html, e não seu arquivo 'main.js', para cada vez que houvesse alguma mudança no js da sua aplicação teria que rodar dnv esse comando no terminal para ele traduzir o código 
+- para ficar mais fácil podemos criar uma chave no nosso 'package.json', abaixo da chave 'test' e colocar a linha de comando 'babel ./main.js -o ./bundle.js --presets=babel/env -w', assim toda vez que o códgo for salvo ele irá retraduzir isso seu arquivo novamente
+- para isso ficar em funcionamento é necessário rodar no terminal o comando 'npm run babel', ele ficará sendo executado toda as vezes a partir disso
+
+- não é muito utilizado, geralmente se utiliza o webpack, essa aula foi mais educacional
+
 ----------------------------------------------------------------------------------------------------------
 
 OBJETOS DO JS
