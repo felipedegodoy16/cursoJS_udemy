@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":"AAGAA,QAAQC,IAAI","sources":["webpack://modelo_webpack/./src/index.js"],"sourcesContent":["// \r\n// \r\n// \r\nconsole.log('Olá mundo');"],"names":["console","log"],"sourceRoot":""}

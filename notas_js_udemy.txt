@@ -567,6 +567,39 @@ BABEL E "CAN I USE..."
 
 - não é muito utilizado, geralmente se utiliza o webpack, essa aula foi mais educacional
 
+WEBPACK
+
+- utilizar esse comando para fazer todas as instalações necessárias 'npm i --save-dev @babel/core @babel/cli @babel/preset-env babel-loader webpack webpack-cli regenerator-runtime core-js@2'
+
+----------------------------------------------------------------------------------------------------------
+
+MÓDULOS
+- basicamente são arquivos, ou seja, um arquivo = um módulo
+- os módulos possuem um escopo dentro dele apenas, ou seja, não posso usar nada do que eu declarar dentro de um arquivo em outro arquivo, por isso utilizamos import e export, para conseguirmos utilizar o código dentro do nosso módulo em algum outro arquivo
+- podemos exportar e importar arquivos js para dentro de outros arquivos com os comandos import e export
+EX: export { nome, sobrenome, idade };
+import { nome, sobrenome, idade } from 'nomeArquivo.js';
+
+OU
+
+export const nome = 'Luiz'; // exporta diretamente a variável quando ela é criada
+
+- para importar tudo que estou exportando de um arquivo para outro basta apenas colocar 
+EX: import * as MeuModulo from 'nomeArquivo'; // é retornado um objeto com tudo o que exportei do outro módulo
+
+- cada arquivo pode também ter um default, esse default é o valor padrão exportado pelo módulo
+EX: export default class Pessoa{};
+import nomeQueEuQuiser from 'nomeArquivo';
+
+EX: export { nome as default, sobrenome, idade }; // também é possível exportar um default dessa maneira
+import qualquerNome, { sobrenome, idade } from 'nomeArquivo'; // importando para 'qualquerNome' o default e o restante no objeto
+
+- quando exportamos algo é possível que no arquivo que importarmos haja alguma variável ou coisa do tipo com aquele mesmo nome, para arrumar isso, podemos receber o que queremos importar em conjunto com a palavra 'as' para renomear como iremos utilizar aquele dado dentro do módulo que estamos importando
+EX: import { nome as nome2 } from 'nomeArquivo';
+
+- assim como podemos utilizar o 'as' para exportar algo com outro nome
+EX: export { nome as nome2 };
+
 ----------------------------------------------------------------------------------------------------------
 
 OBJETOS DO JS
