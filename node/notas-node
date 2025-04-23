@@ -1,0 +1,53 @@
+NPM (NODE PACKAGE MANAGER)
+- npm init -> inicializa o projeto instalado o package.json, usar -y para ele se auto configurar sozinho
+
+- npm install nomeBiblio -> usado para instalar as bibliotecas no projeto, por exemplo, npm install express
+-- se usar -E com o express ele irá ficar na versão atual para sempre, se não usar ele atualiza sozinho quando novas versões forem criadas
+-- no package.json ficará registrado na frente do nome da biblioteca se foi utilizado o -E ou não, antes do número da versão terá um ^ se for para atualizar ou um ~ ou não terá nada
+--- versão 2.1.0 -> 2 indica o major, 1 indica o minor e 0 o patch
+--- esse ^ indica que poderá ocorrer updates no minor e no patch, mas não no major
+--- esse ~ indica que poderá ocorrer updates no patch, mas não no major nem no minor
+--- se não tiver nada ele não atualizará a versão
+
+- npm update -> para atualizar a versão da biblioteca que você está utilizando
+
+- npm install express --save-dev -> para mover a dependência para as devDependencies (save-dev -> salvar em desenvolvimento)
+- npm install express --save-prod -> para mover a dependência para as dependencies (save-prod -> salvar em produção)
+
+- npm install express@2.1.0 -> usado para determinar a versão da biblioteca que você quer usar o @ identifica que virá uma versão e após isso é só colocar a versão que você quiser
+
+- npm uninstall express -> desinstala a biblioteca
+
+- npm ls -> lista as dependencies que foram instaladas
+-- sempre usar npm ls --depth=0 -> isso irá listar apenas as dependencies que eu instalei, se não usar tem dependencies que puxam outras e essa lista pode acabar ficando muito grande, fugindo da pretensão inicial, esse número é quantas pastas ele irá abrir de profundidade, se colocar0 será apenas as dependencies que eu instalei, se colocar 1 ele entra uma pasta e assim por diante
+
+- npm outdated -> mostra as dependencies que estão desatualizadas
+
+---------------------------------------------------------------------------------------------------
+
+DEV DEPENDENCIES
+- são dependências usadas apenas no desenvolvimento, por exemplo o webpack, é usada enquanto estamos desenvolvendo, quando fazemos o deploy da aplicação no servidor ele vai utilizar apenas o arquivo bundle.js e o webpack não será mais necessário, porém existem deéndências que são utilizadas também enquanto o aplicativo está rodando, essas são as dependencies, continuarão a serem executadas mesmo quando tiver ocorrido o deploy
+
+- nodemon -> npm install nodemon --save-dev -> usado para não precisar ficar recarregando o servidor sempre que alterar alguma coisa no código, usaso apenas no desenvolvimento -> para mantê-lo executando basta instalá-lo com o comando de install e depois usar 'npx nodemon nomeArquivo.extensao' ou no arquivo .json colocar nos scripts o script '"start": "nodemon nomeArquivo.extensao"' ai no terminal basta colocar 'npm start'
+
+---------------------------------------------------------------------------------------------------
+
+FILE SYSTEM (FS)
+- writeFile(caminhoArquivo, textoASerEscrito, objeto{ flag: determina o comportamento, encoding: qual o encoding utf8... }) -> serve para escrever algo em um arquivo
+-- flags
+--- w -> apaga o que tem no arquivo e escreve o texto passado por parâmetro
+--- a -> não apaga o texto que já tem no arquivo apenas insere o texto passado
+
+---------------------------------------------------------------------------------------------------
+
+REQUISIÇÃO (REQ)
+- GET
+-- Query String -> é acessada por meio do método GET -> usada para transporte de informações que não sejam sensíveis
+--- é o que pode vir como query na url para você utilizar
+EX: http://facebook.com/profiles/123?campanha=googleads&nome=seila
+// temos a url até o profiles, depois temos um parâmetro, nesse caso representando um id (123) e depois temos a query string que é composto por chave e valor, podendo conter vários pares desses, nesse caso é a chave 'campanha' com o valor 'googleads' e o '&' representa uma nova dupla de chave e valor, nesse caso 'nome' com valor 'seila'
+--- req.query -> irá retornar a query string que tiver na url, ou seja, o que vem após a ?, que são aquelas duplas de chave e valor, não é necessário avisar seu código que haverá uma query como é nos parâmetros, basta apenas passar a query e pronto
+--- req.params -> serve para ver os parâmetros que foram retornados pela url, é necessário avisar o código que haverá parâmetros sendo passados -> EX: /testes/:id?/:outro? -> para indicar que serã um parâmetro é necessário colocar os ':' e a interrogação indica que isso é opcional
+
+- POST
+-- usado para transporte de informações no corpo da requisição, usado para dados mais sensíveis que não ficarão registrados no histórico do computador, já se passar informações atavés de uma query string essas informações ficarão salvas
