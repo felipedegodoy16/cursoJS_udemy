@@ -1,5 +1,5 @@
 {
-  "name": "aula_express_arquivos_estaticos",
+  "name": "aula_express_middlewares",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "aula_express_arquivos_estaticos": "file:",
+    "aula_express_middlewares": "file:",
     "core-js": "^3.41.0",
     "css-loader": "^7.1.2",
     "ejs": "^3.1.10",

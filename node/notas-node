@@ -51,3 +51,18 @@ EX: http://facebook.com/profiles/123?campanha=googleads&nome=seila
 
 - POST
 -- usado para transporte de informações no corpo da requisição, usado para dados mais sensíveis que não ficarão registrados no histórico do computador, já se passar informações atavés de uma query string essas informações ficarão salvas
+
+---------------------------------------------------------------------------------------------------
+
+MIDDLEWARE
+- é basicamente um parâmetro que é passado na rota de alguma página e será executado antes de mostrar uma resposta ao usuário, geralmente é passado a 'req' e a 'res', nesse caso também é passado um parâmetro 'next', que é a próxima função que é chamada após a execução do middleware
+EX: route.get('/', umMiddleware, outraFuncao); -> isso é passado a raiz da página '/', depois é passado um middleware e depois passado outra função que pode ser outro middleware ou algo que irá retornar uma resposta, os middlewares podem retornar uma resposta ao cliente também, mas, sempre precisam também executar o parâmetro 'next' que foi passado para ir para a próxima função
+
+function umMiddleware(req, res, nex) {
+    // cógio a ser executado;
+    next(); // nova função que será executada
+}
+
+- é possível manter uma conexão mesmo depois de ter enviado uma resposta ao meu cliente, ou seja, posso enviar uma resposta e continuar para uma próxima função
+
+- poderoso pq agora é possível receber informações antes de retornar uma resposta ao cliente ou até mesmo retornar uma resposta e ainda assim continuar a executar um script
